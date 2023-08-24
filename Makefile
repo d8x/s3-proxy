@@ -8,6 +8,12 @@ build:
 	@echo "Done, version: $(VERSION)"
 
 
+.PHONY: test
+test:
+	@echo "Running tests..."
+	@go test -v ./...
+	@echo "Done"
+
 .PHONY: docker-build-linux-x86
 docker-build-linux-x86:
 	@echo "Building docker image..."

@@ -65,8 +65,8 @@ cp sgw.example.yaml sgw.yaml
 Access the gateway at http://localhost:7312 by default.
 
 ## Configuration
-Rename the sgw.example.yaml file to sgw.yaml.
-Open sgw.yaml and configure the storage provider settings.
+Rename the `sgw.example.yaml` file to `sgw.yaml`.
+Open `sgw.yaml` and configure the storage provider settings.
 
 
 ## Usage
