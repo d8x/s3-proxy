@@ -50,4 +50,4 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           docker buildx create --use
-          docker buildx build --platform linux/amd64 -t ghcr.io/d8x/sgw:${{ github.ref }} -t ghcr.io/d8x/sgw:latest . --push
+          make docker-build-push-linux-x86

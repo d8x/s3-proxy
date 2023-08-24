@@ -17,5 +17,11 @@ test:
 .PHONY: docker-build-linux-x86
 docker-build-linux-x86:
 	@echo "Building docker image..."
-	@docker buildx build --platform linux/amd64 -t ghcr.io/d8x/$(BINARY_NAME):$(VERSION) .
+	@docker buildx build --platform linux/amd64 -t ghcr.io/d8x/$(BINARY_NAME):$(VERSION) -t ghcr.io/d8x/$(BINARY_NAME):latest .
+	@echo "Done, version: ghcr.io/d8x/$(BINARY_NAME):$(VERSION)"
+
+.PHONY: docker-build-push-linux-x86
+docker-build-push-linux-x86:
+	@echo "Building docker image..."
+	@docker buildx build --platform linux/amd64 -t ghcr.io/d8x/$(BINARY_NAME):$(VERSION) -t ghcr.io/d8x/$(BINARY_NAME):latest . --push
 	@echo "Done, version: ghcr.io/d8x/$(BINARY_NAME):$(VERSION)"
