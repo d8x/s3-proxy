@@ -1,0 +1,29 @@
+listenPort: ":7312" # port on which the gateway will listen for requests
+# debug: true # if true, the gateway will print debug logs
+
+storages: # list of storages
+  auth: # authentication objects
+    minio: &minioAuth
+      accessKey: "foo"
+      secretKey: "boo"
+
+  meta: # metadata objects, defines storage metadata
+    minio: &minioMeta
+      endpoint: "localhost:9000"
+      bucket: "test"
+
+    scalewayNoAuth: &scalewayNoAuthMeta
+      endpoint: "s3.pl-waw.scw.cloud"
+      bucket: "test"
+
+  providers: # storage providers, every provider must be unique
+    minioProvider:
+      type: "minio" # type of provider must be supported by the gateway
+      auth: *minioAuth # reference to authentication object
+      meta: *minioMeta # reference to metadata object
+
+    scalewayProvider:
+      type: "scaleway"
+      meta: *scalewayNoAuthMeta # reference to metadata object
+      # auth: # authentication object is not required
+
